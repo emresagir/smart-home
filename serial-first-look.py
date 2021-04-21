@@ -1,6 +1,6 @@
 import serial, time
 
-data = serial.Serial('COM3', 9600)
+data = serial.Serial('COM3', 9600, timeout = 1)
 
 def led_on():
     data.write('1'.encode())
