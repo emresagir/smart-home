@@ -21,14 +21,14 @@ def led_off():
 #   recData = (recData/1024)*5
 #   print(recData)
     
-while 1:
-    timeFlag = timeFlag + 1
-    print(lightSit)
-    if lightSit == 0:
-        led_off()
-
-    if lightSit == 1:
-        led_on()
+#while 1:
+#   timeFlag = timeFlag + 1
+#   print(lightSit)
+#   if lightSit == 0:
+#       led_off()
+#
+#   if lightSit == 1:
+#       led_on()
 
 # for _ in range(0, 10):
 #     time.sleep(1)

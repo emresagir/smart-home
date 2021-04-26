@@ -4,7 +4,8 @@ from gtts import gTTS
 import datetime
 r = sr.Recognizer()
 
-lightSit = 1
+import understandingSerial #importing pyserial code.
+
 
 class Person:
     name = ''
@@ -17,10 +18,10 @@ def is_exist(terms, string):
             return True
 
 def close_the_light():
-    lightSit = 0
+    understandingSerial.led_off()
 
 def open_the_light():
-    lightSit = 1
+    understandingSerial.led_on()
 
 def record_audio(ask=False):
     with sr.Microphone(device_index=1) as source: # microphone as source
