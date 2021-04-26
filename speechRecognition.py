@@ -4,6 +4,8 @@ from gtts import gTTS
 import datetime
 r = sr.Recognizer()
 
+lightSit = 1
+
 class Person:
     name = ''
     def setName(self, name):
@@ -15,13 +17,16 @@ def is_exist(terms, string):
             return True
 
 def close_the_light():
-    pass
+    lightSit = 0
+
+def open_the_light():
+    lightSit = 1
 
 def record_audio(ask=False):
     with sr.Microphone(device_index=1) as source: # microphone as source
         if ask:
             print(ask)
-        r.adjust_for_ambient_noise(source, duration = 1)
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)  # listen for the audio via source
         voice_data = ''
         try:
@@ -54,9 +59,13 @@ def respond(string):
         exit()
     
     if is_exist(["close the light", "close the lights", "turn off the light", "turn off the lights", "turn the lights off", "turn the light off", "turn off light", "turn off light"], string):
-        friday_speak("Closing the lights")
+        friday_speak("Turning off the lights")
         close_the_light()
-    
+
+    if is_exist((["open the light", "open the lights", "turn on the light", "turn on the lights", "turn the lights on", " turn the light on"]), string):
+        friday_speak("Turning on the lights")
+        open_the_light()
+
     if is_exist(["what is your name", "what's your name"], string):
         if person_obj.name:
             friday_speak("my name is friday")
