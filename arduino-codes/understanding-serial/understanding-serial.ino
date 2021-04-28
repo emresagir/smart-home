@@ -1,3 +1,5 @@
+#include <SoftwareSerial.h>
+
 char serialData;
 int pin = 13;
 int relayPin = 6;

@@ -4,7 +4,7 @@ from tester import lightSit
 
 timeFlag = 0
 
-data = serial.Serial('COM3', 9600, timeout = 1)
+data = serial.Serial('COM5', 9600, timeout = 1)
 
 for _ in range (0,2):   #It's giving an error for first byte so with this loop we eliminate first two byte.
     arduinoData = data.readline()
